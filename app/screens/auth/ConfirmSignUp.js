@@ -8,7 +8,7 @@ import AppButton from '../../componets/AppButton'
 
 
 function ConfirmSignUp({ navigation }) {
-
+  
     const [username, setUsername] = useState('')
     const [authCode, setAuthCode] = useState('')
     

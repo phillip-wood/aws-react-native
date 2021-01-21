@@ -61,6 +61,8 @@ function Login({ navigation, updateAuthState }) {
   )
 }
 
+export default Login
+
 const styles = StyleSheet.create({
   screen: {
     backgroundColor: colors.black,
@@ -95,4 +97,3 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Login

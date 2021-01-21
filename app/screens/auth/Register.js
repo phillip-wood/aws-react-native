@@ -27,7 +27,6 @@ function Register({ navigation }) {
     }
   }
 
-
   return (
     <Screen style={styles.screen}>
         <Image style={styles.logo} source={require("../../../assets/sneaked-icon-shoe-yellow.png")} />
@@ -74,6 +73,8 @@ function Register({ navigation }) {
   )
 }
 
+export default Register
+
 const styles = StyleSheet.create({
   screen: {
     backgroundColor: colors.black,
@@ -108,4 +109,3 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Register
