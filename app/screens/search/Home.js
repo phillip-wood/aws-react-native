@@ -7,17 +7,16 @@ import AppButton from "../../componets/AppButton"
 import Screen from "../../componets/Screen"
 
 
-export default function Home({ updateAuthState }) {
+export default function Home(props) {
 
   async function signOut() {
     try {
       await Auth.signOut();
-      updateAuthState('loggedOut')
+      props.updateAuthState('loggedOut')
     } catch (error) {
       console.log('Error signing out: ', error)
     }
   }
-
 
   return (
     <Screen style={styles.container} >
