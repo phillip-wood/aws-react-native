@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { StyleSheet, Image, View } from "react-native"
 import { Auth } from 'aws-amplify'
 
@@ -6,13 +6,21 @@ import colors from "../../config/colors"
 import AppButton from "../../componets/AppButton"
 import Screen from "../../componets/Screen"
 
+import { fetchSneakers } from "../../../actions"
+import { connect } from "react-redux"
 
-export default function Home({ updateAuthState }) {
+
+function Home(props) {
+
+  useEffect(() => {
+    props.dispatch(fetchSneakers())
+  }, [])
+
 
   async function signOut() {
     try {
       await Auth.signOut();
-      updateAuthState('loggedOut')
+      props.updateAuthState('loggedOut')
     } catch (error) {
       console.log('Error signing out: ', error)
     }
@@ -35,6 +43,14 @@ export default function Home({ updateAuthState }) {
     </Screen>
   )
 }
+
+function mapStateToProps (globalState) {
+  return {
+    sneakers: globalState.sneakers
+  }
+}
+
+export default connect(mapStateToProps)(Home)
 
 const styles = StyleSheet.create({
   

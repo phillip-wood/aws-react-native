@@ -1,5 +1,13 @@
 import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))
+
+import reducers from '../../../reducers'
 
 import Home from '../../screens/search/Home'
 
@@ -8,6 +16,7 @@ const Stack = createStackNavigator()
 const AppNavigator = props => {
     
     return (
+        <Provider store={store}>
       <Stack.Navigator headerMode="none">
         <Stack.Screen 
             name="Home">
@@ -16,6 +25,7 @@ const AppNavigator = props => {
           )}
         </Stack.Screen>
       </Stack.Navigator>
+        </Provider>
     )
   }
 
