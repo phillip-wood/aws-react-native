@@ -1,7 +1,7 @@
-import { create } from 'apisauce'
+// import { create } from 'apisauce'
 
-const apiClient = create({
-    baseURL: 'https://api.thesneakerdatabase.com/v1'
-})
+// const apiClient = create({
+//     baseURL: 'https://api.thesneakerdatabase.com/v1'
+// })
 
-export default apiClient
+// export default apiClient

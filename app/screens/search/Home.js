@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { StyleSheet, Image, View } from "react-native"
+import React, { useEffect } from "react"
+import { StyleSheet, Image} from "react-native"
 import { Auth } from 'aws-amplify'
 
 import colors from "../../config/colors"
@@ -35,7 +35,7 @@ function Home(props) {
        
 
 
-          <AppButton title="Search" onPress={() => console.log('search')} />
+          <AppButton title="Search" onPress={() => props.navigation.navigate('Search')} />
           <AppButton title="Logout" onPress={signOut} />
       
 

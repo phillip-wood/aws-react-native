@@ -1,4 +1,6 @@
-import { getSneakers } from '../apis/sneakers'
+import { API } from 'aws-amplify'
+
+import * as queries from '../src/graphql/queries'
 
 export const SET_SNEAKERS = 'SET_SNEAKERS'
 
@@ -11,9 +13,9 @@ export function setSneakers (sneakers) {
 
 export function fetchSneakers () {
   return dispatch => {
-    return getSneakers()
+    return API.graphql({ query: queries.listSneakers})
       .then(sneakers => {
-        dispatch(setSneakers(sneakers.data.results))
+        dispatch(setSneakers(sneakers.data.listSneakers.items))
         return null
       })
   }
