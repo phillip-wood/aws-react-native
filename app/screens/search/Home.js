@@ -10,10 +10,10 @@ import { fetchSneakers } from "../../../actions"
 import { connect } from "react-redux"
 
 
-function Home(props) {
+function Home({ dispatch , navigation }) {
 
   useEffect(() => {
-    props.dispatch(fetchSneakers())
+    dispatch(fetchSneakers())
   }, [])
 
 
@@ -35,7 +35,7 @@ function Home(props) {
        
 
 
-          <AppButton title="Search" onPress={() => props.navigation.navigate('Search')} />
+          <AppButton title="Search" onPress={() => navigation.navigate('Search')} />
           <AppButton title="Logout" onPress={signOut} />
       
 
