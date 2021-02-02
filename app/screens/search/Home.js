@@ -1,45 +1,25 @@
 import React, { useEffect } from "react"
 import { StyleSheet, Image} from "react-native"
-import { Auth } from 'aws-amplify'
 
 import colors from "../../config/colors"
 import AppButton from "../../componets/AppButton"
 import Screen from "../../componets/Screen"
 
-import { fetchSneakers } from "../../../actions"
+import { fetchAuthUser, fetchSneakers } from "../../../actions"
 import { connect } from "react-redux"
-
 
 function Home({ dispatch , navigation }) {
 
   useEffect(() => {
     dispatch(fetchSneakers())
+    dispatch(fetchAuthUser())
   }, [])
-
-
-  async function signOut() {
-    try {
-      await Auth.signOut();
-      props.updateAuthState('loggedOut')
-    } catch (error) {
-      console.log('Error signing out: ', error)
-    }
-  }
-
 
   return (
     <Screen style={styles.container} >
-        
-        
-            <Image style={styles.image} source={require("../../../assets/homePhoto.jpg")}/>
-       
-
-
-          <AppButton title="Search" onPress={() => navigation.navigate('Search')} />
-          <AppButton title="Logout" onPress={signOut} />
-      
-
-
+      <Image style={styles.image} source={require("../../../assets/homePhoto.jpg")}/>
+        <AppButton title="Search" onPress={() => navigation.navigate('Search')} />
+        <AppButton title="Profile" onPress={() => navigation.navigate('Profile')} />
     </Screen>
   )
 }

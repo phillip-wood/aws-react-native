@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    color: '#202020',
+    color: colors.primary,
     fontWeight: '500',
     marginVertical: 15
   },
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   forgotPasswordButtonText: {
-    color: 'tomato',
+    color: colors.primary,
     fontSize: 18,
     fontWeight: '600'
   }

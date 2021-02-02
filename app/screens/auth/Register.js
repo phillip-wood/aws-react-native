@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
-import { Auth } from 'aws-amplify'
 
 import Screen from "../../componets/Screen"
 import colors from '../../config/colors'
 import AppTextInput from '../../componets/AppTextInput'
 import AppButton from '../../componets/AppButton'
+import { authSignUp } from '../../../apis/auth'
 
 function Register({ navigation }) {
 
@@ -13,19 +13,7 @@ function Register({ navigation }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [preferred_username, setPreferred_username] = useState('')
-
-  // aws sign function
-  async function register() {
-    try {
-      await Auth.signUp({ username, password, attributes: { preferred_username } })
-      console.log('✅ Sign-up Confirmed')
-      navigation.navigate('ConfirmSignUp')
-    } 
-    
-    catch (error) {
-      console.log('❌ Error signing up...', error)
-    }
-  }
+  const picture = 'https://sneakedbucket212939-staging.s3-ap-southeast-2.amazonaws.com/default-picture.png'
 
   return (
     <Screen style={styles.screen}>
@@ -60,7 +48,7 @@ function Register({ navigation }) {
           secureTextEntry
           textContentType="password"
         />
-        <AppButton title="Sign Up" onPress={register} />
+        <AppButton title="Sign Up" onPress={() => authSignUp( username, password, preferred_username, picture, navigation )} />
         <View style={styles.footerButtonContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={styles.forgotPasswordButtonText}>
@@ -103,7 +91,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   forgotPasswordButtonText: {
-    color: 'tomato',
+    color: colors.primary,
     fontSize: 18,
     fontWeight: '600'
   }
