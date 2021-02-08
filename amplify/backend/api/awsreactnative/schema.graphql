@@ -1,7 +1,16 @@
+type UserSneaker @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  user_id: String!
+  condition: String!
+  images: [String]
+  Sneaker: Sneaker @connection
+}
+
 type Sneaker @model @auth(rules: [{allow: public}]) {
   id: ID!
-  brand: String
-  model: String
+  brand: String!
+  model: String!
   submodel: String
   colorway: String
 }
+ 

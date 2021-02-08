@@ -1,7 +1,7 @@
 {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "awsrea740bb809",
+    "resourceNameTruncated": "awsrea8e17fa50",
     "userPoolName": "awsreactnative",
     "autoVerifiedAttributes": [
         "email"
@@ -24,7 +24,8 @@
     ],
     "requiredAttributes": [
         "email",
-        "preferred_username"
+        "preferred_username",
+        "picture"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
@@ -34,9 +35,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "awsrea740bb809_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "awsrea8e17fa50_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "740bb809",
+    "sharedId": "8e17fa50",
     "resourceName": "awsreactnative",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {

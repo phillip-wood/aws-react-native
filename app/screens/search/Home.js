@@ -1,52 +1,36 @@
 import React, { useEffect } from "react"
 import { StyleSheet, Image} from "react-native"
-import { Auth } from 'aws-amplify'
 
 import colors from "../../config/colors"
 import AppButton from "../../componets/AppButton"
 import Screen from "../../componets/Screen"
 
-import { fetchSneakers } from "../../../actions"
+import { fetchAuthUser, fetchSneakers, fetchUserSneakers } from "../../../actions"
 import { connect } from "react-redux"
 
+function Home({ dispatch, navigation, user }) {
 
-function Home({ dispatch , navigation }) {
-
-  useEffect(() => {
-    dispatch(fetchSneakers())
+  useEffect(() => { 
+    dispatch( fetchAuthUser() )
+    dispatch( fetchSneakers() )
   }, [])
 
-
-  async function signOut() {
-    try {
-      await Auth.signOut();
-      props.updateAuthState('loggedOut')
-    } catch (error) {
-      console.log('Error signing out: ', error)
-    }
-  }
-
+  useEffect(() => {
+    if (user.id) dispatch(fetchUserSneakers(user.id))
+  }, [user])
 
   return (
     <Screen style={styles.container} >
-        
-        
-            <Image style={styles.image} source={require("../../../assets/homePhoto.jpg")}/>
-       
-
-
-          <AppButton title="Search" onPress={() => navigation.navigate('Search')} />
-          <AppButton title="Logout" onPress={signOut} />
-      
-
-
+      <Image style={styles.image} source={{uri:require("../../../assets/homePhoto.jpg")}}/>
+        <AppButton title="Search" onPress={() => navigation.navigate('Search')} />
     </Screen>
   )
 }
 
 function mapStateToProps (globalState) {
   return {
-    sneakers: globalState.sneakers
+    sneakers: globalState.sneakers,
+    user: globalState.user
   }
 }
 
@@ -55,7 +39,7 @@ export default connect(mapStateToProps)(Home)
 const styles = StyleSheet.create({
   
   container: {
-    backgroundColor: colors.black,
+    backgroundColor: colors.white,
   },
 
   // logoContainer: {
@@ -68,6 +52,7 @@ const styles = StyleSheet.create({
   // },
   
   image: {
+    flex: ".4",
     width: "100%",
     resizeMode: "contain",
     },
