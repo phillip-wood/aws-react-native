@@ -1,5 +1,76 @@
 export const schema = {
     "models": {
+        "UserSneaker": {
+            "name": "UserSneaker",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "user_id": {
+                    "name": "user_id",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "condition": {
+                    "name": "condition",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "images": {
+                    "name": "images",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "Sneaker": {
+                    "name": "Sneaker",
+                    "isArray": false,
+                    "type": {
+                        "model": "Sneaker"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "userSneakerSneakerId"
+                    }
+                }
+            },
+            "syncable": true,
+            "pluralName": "UserSneakers",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Sneaker": {
             "name": "Sneaker",
             "fields": {
@@ -14,14 +85,14 @@ export const schema = {
                     "name": "brand",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "model": {
                     "name": "model",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "submodel": {
@@ -67,5 +138,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "f1ab1e33b4a9bc8e79036fa4b5e9999a"
+    "version": "4e6f5dc32c96d64034e6c8d20356ba46"
 };

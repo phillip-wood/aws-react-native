@@ -5,8 +5,17 @@ import { NavigationContainer } from '@react-navigation/native'
 import awsconfig from './src/aws-exports'
 Amplify.configure(awsconfig)
 
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))
+
+import reducers from './reducers'
+
 import AuthNavigator from './app/componets/navigation/AuthNavigator'
-import AppNavigator from './app/componets/navigation/AppNavigator'
+import TabNavigator from './app/componets/navigation/TabNavigator'
 import Initializing from './app/componets/navigation/Initializing'
 
 function App() {
@@ -32,9 +41,11 @@ function App() {
 
 return (
     <NavigationContainer>
-      {isUserLoggedIn === 'initializing' && <Initializing />}
+      {isUserLoggedIn === 'initializing' && <Initializing/>}
         {isUserLoggedIn === 'loggedIn' && (
-          <AppNavigator updateAuthState={updateAuthState} />
+          <Provider store={store}>
+            <TabNavigator updateAuthState={updateAuthState} />
+          </Provider>
         )}
         {isUserLoggedIn === 'loggedOut' && (
           <AuthNavigator updateAuthState={updateAuthState} />

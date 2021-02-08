@@ -5,28 +5,32 @@ import colors from "../../config/colors"
 import AppButton from "../../componets/AppButton"
 import Screen from "../../componets/Screen"
 
-import { fetchAuthUser, fetchSneakers } from "../../../actions"
+import { fetchAuthUser, fetchSneakers, fetchUserSneakers } from "../../../actions"
 import { connect } from "react-redux"
 
-function Home({ dispatch , navigation }) {
+function Home({ dispatch, navigation, user }) {
+
+  useEffect(() => { 
+    dispatch( fetchAuthUser() )
+    dispatch( fetchSneakers() )
+  }, [])
 
   useEffect(() => {
-    dispatch(fetchSneakers())
-    dispatch(fetchAuthUser())
-  }, [])
+    if (user.id) dispatch(fetchUserSneakers(user.id))
+  }, [user])
 
   return (
     <Screen style={styles.container} >
-      <Image style={styles.image} source={require("../../../assets/homePhoto.jpg")}/>
+      <Image style={styles.image} source={{uri:require("../../../assets/homePhoto.jpg")}}/>
         <AppButton title="Search" onPress={() => navigation.navigate('Search')} />
-        <AppButton title="Profile" onPress={() => navigation.navigate('Profile')} />
     </Screen>
   )
 }
 
 function mapStateToProps (globalState) {
   return {
-    sneakers: globalState.sneakers
+    sneakers: globalState.sneakers,
+    user: globalState.user
   }
 }
 
@@ -35,7 +39,7 @@ export default connect(mapStateToProps)(Home)
 const styles = StyleSheet.create({
   
   container: {
-    backgroundColor: colors.black,
+    backgroundColor: colors.white,
   },
 
   // logoContainer: {
@@ -48,6 +52,7 @@ const styles = StyleSheet.create({
   // },
   
   image: {
+    flex: ".4",
     width: "100%",
     resizeMode: "contain",
     },

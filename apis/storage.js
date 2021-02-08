@@ -1,42 +1,32 @@
 import { Storage } from 'aws-amplify'
-import { updateUser } from '../actions/index' 
 
 export async function s3ListUserSneakerPics() {
-    try {
-        Storage.list('profile-pics/', { level: 'protected' })
-            .then(result => console.log(result))
-        } 
-    catch (error) {
-            console.log('❌ Error Getting Images', error)
-        }
-}
-
-export async function s3UploadProfilePic(uri, dispatch) {
     Storage.configure({ level: 'protected' })
-    try {
-        const response = await fetch(uri)
-        const blob = await response.blob()
-        Storage.put(`profile-pics/profile-picture.jpeg`, blob, {
-            contentType: 'image/jpeg', })
-            .then(response => s3GetProfilePic(response.key, dispatch))
-        } 
-    catch (error) {
-        console.log('❌ Error Uploading Profile Picture', error)
-        }
+    Storage.list('profile-pics/')
+        .then( result => console.log(result))
+        .catch( error => console.log('❌ Error Listing Images', error))
 }
 
-export async function s3GetProfilePic(key, dispatch) {
+export async function s3UploadProfilePic( uri, dispatch ) {
     Storage.configure({ level: 'protected' })
-    try {
-        Storage.get(key)
-            .then(response => dispatch(updateUser(response)))
-        } 
-    catch (error) {
-        console.log('❌ Error Getting Profile Picture', error)
-        }
+    const response = await fetch( uri )
+    const blob = await response.blob()
+    Storage.put('profile-pics/profile-picture.jpeg', blob, { contentType: 'image/jpeg', })
+        .then( response => s3GetImageLink( response.key ))
+        .then( link => console.log( link ))
+        .catch( error => console.log('❌ Error Uploading ', error) )  
 }
 
-
+export async function s3GetImageLink(key) {
+    try{
+        Storage.configure({ level: 'protected' })
+        const link = await Storage.get(key)
+        return link
+    }
+    catch (err) {
+        console.log('❌ Error Getting Image Link',err)
+    }   
+} 
 
 
 // Storage.configure({ level: 'protected' })

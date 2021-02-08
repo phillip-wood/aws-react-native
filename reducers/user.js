@@ -8,7 +8,7 @@ const reducer = (state = initialState, action) => {
       return action.user
     case UPDATE_USER:
       let newState = {...state}
-      newState.picture = action.userDetails
+      newState.username = action.update
     return newState
     default:
       return state
