@@ -8,13 +8,12 @@ import colors from '../../config/colors'
 import AppButton from '../../componets/AppButton'
 
 
-function Logout({ navigation, updateAuthState }) {
+function Logout({ updateAuthState }) {
 
     async function signOut() {
         try {
           await Auth.signOut()
             updateAuthState('loggedOut')
-            navigation.navigate('Login')
         } catch (error) {
             console.log('Error signing out: ', error)
         }

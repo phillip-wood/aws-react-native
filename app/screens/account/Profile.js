@@ -1,6 +1,7 @@
 import React from "react"
 import { StyleSheet, View, FlatList, Image } from "react-native"
 import { connect } from "react-redux"
+import { Auth } from 'aws-amplify'
 
 import ListItemSeparator from "../../componets/ListItemSeparator"
 import colors from "../../config/colors"
@@ -24,7 +25,7 @@ const menuItems = [
       name: "message",
       backgroundColor: colors.primary,
     },
-    targetScreen: 'UserDetails',
+    targetScreen: 'EditDetails',
   },
   {
     title: "My Details",
@@ -32,7 +33,7 @@ const menuItems = [
       name: "account",
       backgroundColor: colors.primary,
     },
-    targetScreen: 'UserDetails',
+    targetScreen: 'EditDetails',
   },
   {
     title: "Log Out",

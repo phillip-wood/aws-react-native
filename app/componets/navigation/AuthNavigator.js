@@ -17,10 +17,7 @@ const AuthNavigator = ({ updateAuthState }) => {
           )}
         </Stack.Screen>
         <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen
-          name="ConfirmSignUp"
-          component={ConfirmSignUp}
-        />
+        <Stack.Screen name="ConfirmSignUp" component={ConfirmSignUp} />
       </Stack.Navigator>
     )
   }

@@ -10,7 +10,7 @@ import routes from "./routes"
 
 const Tab = createBottomTabNavigator()
 
-const TabNavigator = () => (
+const TabNavigator = ({updateAuthState}) => (
 
     <Tab.Navigator>
        
@@ -44,7 +44,7 @@ const TabNavigator = () => (
         />
         <Tab.Screen
         name="Profile"
-        component={AccountNavigator}
+        children={()=><AccountNavigator updateAuthState={updateAuthState}/>}
         options={{
             tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
