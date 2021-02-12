@@ -12,11 +12,12 @@ import ListItemSeparator from "../../componets/ListItemSeparator"
 import { updatePreferred_username, updatePassword } from "../../../apis/auth"
 import AppTextInput from "../../componets/AppTextInput"
 import AppButton from "../../componets/AppButton"
-// import ProfileImageInput from "../../componets/ProfileImageInput"
-// import { s3UploadProfilePic } from "../../../apis/storage"
+import ProfileImageInput from "../../componets/ProfileImageInput"
+import { s3CreateImage } from "../../../apis/storage"
+import { updateUserInfoImage } from "../../../actions"
 
 
-function EditProfile({ navigation, user, dispatch }) {
+function EditProfile({ authUser, userInfo, dispatch }) {
 
   const [preferred_username, setPreferred_username] = useState('')
   const [oldPassword, setOldPassword] = useState('')
@@ -24,27 +25,34 @@ function EditProfile({ navigation, user, dispatch }) {
   const [preferred_usernameClicked, setPreferred_usernameClicked] = useState(false)
   const [passwordClicked, setPasswordClicked] = useState(false)
 
+  const handleUploadPic = async ( image ) => {
+      let link = await s3CreateImage( image, "profile-pic" )
+      //need to create an update function
+      dispatch( updateUserInfoImage(link))
+  }
+
+
 
 return (
   <Screen style={styles.screen}>
     
     <View style={styles.container}>
         <ProfileSnip
-          title={user.username}
-          image={user.picture}
+          title={authUser.username}
+          image={userInfo.image}
         />
     </View>
 
     <View style={styles.container}>
-      {/* <ProfileImageInput 
-        onChangeImage={(uri) => s3UploadProfilePic(uri, dispatch)}
+      <ProfileImageInput 
+        onChangeImage={(uri) => handleUploadPic( uri )}
         /> 
-       */}
+      
       <AppText>Account Details</AppText>
       
       <ListItem
         title={'Username'}
-        subTitle={user.username}
+        subTitle={authUser.username}
         IconComponent={
           <Icon
             name={'account'}
@@ -66,7 +74,7 @@ return (
         textContentType="emailAddress"
         /> 
         <AppButton title="Save Changes" onPress={() => {
-          updatePreferred_username( preferred_username, dispatch, navigation )
+          dispatch( updatePreferred_username( preferred_username ))
           setPreferred_usernameClicked( prevPreferred_usernameClicked => !prevPreferred_usernameClicked )}} />
         </View>
           ): null }
@@ -107,7 +115,7 @@ return (
           textContentType="password"
         />
         <AppButton title="Save Changes" onPress={() => {
-          updatePassword( oldPassword, newPassword )  
+          updatePassword( oldPassword, newPassword ) 
           setPasswordClicked( prevPasswordClicked => !prevPasswordClicked)}} />
         </View>
           ): null }
@@ -119,7 +127,8 @@ return (
 
 function mapStateToProps (globalState) {
   return {
-    user:globalState.user
+    authUser:globalState.authUser,
+    userInfo:globalState.userInfo
   }
 }
 

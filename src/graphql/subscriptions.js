@@ -1,6 +1,48 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateUserInfo = /* GraphQL */ `
+  subscription OnCreateUserInfo {
+    onCreateUserInfo {
+      id
+      image
+      user_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateUserInfo = /* GraphQL */ `
+  subscription OnUpdateUserInfo {
+    onUpdateUserInfo {
+      id
+      image
+      user_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteUserInfo = /* GraphQL */ `
+  subscription OnDeleteUserInfo {
+    onDeleteUserInfo {
+      id
+      image
+      user_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateUserSneaker = /* GraphQL */ `
   subscription OnCreateUserSneaker {
     onCreateUserSneaker {
@@ -13,7 +55,7 @@ export const onCreateUserSneaker = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      sneaker_id {
+      Sneaker {
         id
         brand
         model
@@ -40,7 +82,7 @@ export const onUpdateUserSneaker = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      sneaker_id {
+      Sneaker {
         id
         brand
         model
@@ -67,7 +109,7 @@ export const onDeleteUserSneaker = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      sneaker_id {
+      Sneaker {
         id
         brand
         model

@@ -25,7 +25,7 @@ const menuItems = [
       name: "message",
       backgroundColor: colors.primary,
     },
-    targetScreen: 'EditDetails',
+    targetScreen: 'EditProfile',
   },
   {
     title: "My Details",
@@ -33,7 +33,7 @@ const menuItems = [
       name: "account",
       backgroundColor: colors.primary,
     },
-    targetScreen: 'EditDetails',
+    targetScreen: 'EditProfile',
   },
   {
     title: "Log Out",
@@ -45,14 +45,14 @@ const menuItems = [
   },
 ]
 
-function Profile({ navigation, user }) {
+function Profile({ navigation, authUser, userInfo }) {
   
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ProfileSnip
-          title={user.username}
-          image={user.picture}
+          title={authUser.username}
+          image={userInfo.image}
         />
       </View>
       <View style={styles.container}>
@@ -80,7 +80,8 @@ function Profile({ navigation, user }) {
 
 function mapStateToProps (globalState) {
   return {
-    user:globalState.user
+    authUser:globalState.authUser,
+    userInfo:globalState.userInfo
   }
 }
 

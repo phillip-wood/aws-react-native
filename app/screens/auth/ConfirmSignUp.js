@@ -5,6 +5,7 @@ import { Auth } from 'aws-amplify'
 import Screen from '../../componets/Screen'
 import AppTextInput from '../../componets/AppTextInput'
 import AppButton from '../../componets/AppButton'
+import { confirmAuthUser } from "../../../apis/auth"
 
 
 function ConfirmSignUp({ navigation }) {
@@ -12,18 +13,6 @@ function ConfirmSignUp({ navigation }) {
     const [username, setUsername] = useState('')
     const [authCode, setAuthCode] = useState('')
     
-    async function confirmSignUp() {
-        try {
-        await Auth.confirmSignUp(username, authCode)
-        console.log('✅ Code confirmed')
-        navigation.navigate('Login')
-        } catch (error) {
-        console.log(
-            '❌ Verification code does not match. Please enter a valid verification code.',
-            error.code
-        )
-        }
-    }
 return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -44,7 +33,7 @@ return (
           placeholder="Enter verification code"
           keyboardType="numeric"
         />
-        <AppButton title="Confirm Sign Up" onPress={confirmSignUp} />
+        <AppButton title="Confirm Sign Up" onPress={() => confirmAuthUser( username, authCode, navigation )} />
       </View>
     </Screen>
   )

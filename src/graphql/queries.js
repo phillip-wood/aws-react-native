@@ -1,6 +1,70 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getUserInfo = /* GraphQL */ `
+  query GetUserInfo($id: ID!) {
+    getUserInfo(id: $id) {
+      id
+      image
+      user_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listUserInfos = /* GraphQL */ `
+  query ListUserInfos(
+    $filter: ModelUserInfoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUserInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        image
+        user_id
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncUserInfos = /* GraphQL */ `
+  query SyncUserInfos(
+    $filter: ModelUserInfoFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncUserInfos(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        image
+        user_id
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getUserSneaker = /* GraphQL */ `
   query GetUserSneaker($id: ID!) {
     getUserSneaker(id: $id) {
@@ -13,7 +77,7 @@ export const getUserSneaker = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      sneaker_id {
+      Sneaker {
         id
         brand
         model

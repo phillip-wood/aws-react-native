@@ -1,6 +1,57 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createUserInfo = /* GraphQL */ `
+  mutation CreateUserInfo(
+    $input: CreateUserInfoInput!
+    $condition: ModelUserInfoConditionInput
+  ) {
+    createUserInfo(input: $input, condition: $condition) {
+      id
+      image
+      user_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateUserInfo = /* GraphQL */ `
+  mutation UpdateUserInfo(
+    $input: UpdateUserInfoInput!
+    $condition: ModelUserInfoConditionInput
+  ) {
+    updateUserInfo(input: $input, condition: $condition) {
+      id
+      image
+      user_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteUserInfo = /* GraphQL */ `
+  mutation DeleteUserInfo(
+    $input: DeleteUserInfoInput!
+    $condition: ModelUserInfoConditionInput
+  ) {
+    deleteUserInfo(input: $input, condition: $condition) {
+      id
+      image
+      user_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createUserSneaker = /* GraphQL */ `
   mutation CreateUserSneaker(
     $input: CreateUserSneakerInput!
@@ -16,7 +67,7 @@ export const createUserSneaker = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      sneaker_id {
+      Sneaker {
         id
         brand
         model
@@ -46,7 +97,7 @@ export const updateUserSneaker = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      sneaker_id {
+      Sneaker {
         id
         brand
         model
@@ -76,7 +127,7 @@ export const deleteUserSneaker = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      sneaker_id {
+      Sneaker {
         id
         brand
         model

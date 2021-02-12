@@ -1,5 +1,55 @@
 export const schema = {
     "models": {
+        "UserInfo": {
+            "name": "UserInfo",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "image": {
+                    "name": "image",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "user_id": {
+                    "name": "user_id",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            },
+            "syncable": true,
+            "pluralName": "UserInfos",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "UserSneaker": {
             "name": "UserSneaker",
             "fields": {
@@ -138,5 +188,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "4e6f5dc32c96d64034e6c8d20356ba46"
+    "version": "b01cf1c925506eaf6786a2a1daa1b52a"
 };

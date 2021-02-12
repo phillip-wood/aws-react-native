@@ -5,15 +5,13 @@ import Screen from "../../componets/Screen"
 import colors from '../../config/colors'
 import AppTextInput from '../../componets/AppTextInput'
 import AppButton from '../../componets/AppButton'
-import { authSignUp } from '../../../apis/auth'
+import { createAuthUser } from '../../../apis/auth'
 
 function Register({ navigation }) {
 
-  // setup state to capture username email and password from inputs
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [preferred_username, setPreferred_username] = useState('')
-  const picture = 'https://sneakedbucket212939-staging.s3-ap-southeast-2.amazonaws.com/default-picture.png'
 
   return (
     <Screen style={styles.screen}>
@@ -48,7 +46,7 @@ function Register({ navigation }) {
           secureTextEntry
           textContentType="password"
         />
-        <AppButton title="Sign Up" onPress={() => authSignUp( username, password, preferred_username, picture, navigation )} />
+        <AppButton title="Sign Up" onPress={() => createAuthUser( username, password, preferred_username, navigation )} />
         <View style={styles.footerButtonContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={styles.forgotPasswordButtonText}>

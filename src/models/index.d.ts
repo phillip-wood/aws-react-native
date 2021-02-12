@@ -4,6 +4,14 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+export declare class UserInfo {
+  readonly id: string;
+  readonly image?: string;
+  readonly user_id?: string;
+  constructor(init: ModelInit<UserInfo>);
+  static copyOf(source: UserInfo, mutator: (draft: MutableModel<UserInfo>) => MutableModel<UserInfo> | void): UserInfo;
+}
+
 export declare class UserSneaker {
   readonly id: string;
   readonly user_id: string;
