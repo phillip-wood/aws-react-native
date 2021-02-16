@@ -6,23 +6,12 @@ import ListItem from "../../componets/ListItem"
 import Screen from "../../componets/Screen"
 import ListItemSeparator from "../../componets/ListItemSeparator"
 
-const messages = [
-  // {
-  //   id: 1,
-  //   title: "T1",
-  //   description: "D1",
-  //   image: require("../../assets/user1.png"),
-  // },
-  // {
-  //   id: 2,
-  //   title: "T2",
-  //   description: "D2",
-  //   image: require("../../assets/user1.png"),
-  // },
-]
 
-function Messages(props) {
+function Messages({ userMessages }) {
 
+  const messages = userMessages
+  const oneMess = messages[0].body[0]["message"]
+  console.log(oneMess)
   return (
      <Screen>
 
@@ -31,9 +20,9 @@ function Messages(props) {
             keyExtractor={message => message.id.toString()}
             renderItem={({ item }) => 
                 <ListItem 
-                    title={item.title}
-                    subTitle={item.subTitle}
-                    image={item.image}
+                    title={item.subject}
+                    subTitle={item.body}
+                    // image={item.image}
                     onPress={() => console.log("Message Selected", item)}
                     /> 
                   }
@@ -45,7 +34,8 @@ function Messages(props) {
 
 function mapStateToProps (globalState) {
   return {
-    user:globalState.user
+    user: globalState.user,
+    userMessages: globalState.userMessages 
   }
 }
 

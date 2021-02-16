@@ -6,7 +6,9 @@ import colors from "../../config/colors"
 import AppButton from "../../componets/AppButton"
 import Screen from "../../componets/Screen"
 import { readAuthUser } from "../../../apis/auth"
-import { dbReadSneakers, dbReadUserInfo, dbReadUserSneakers } from "../../../apis/database"
+import { dbReadSneakers } from "../../../apis/database/sneakers"
+import { dbReadUserInfo } from "../../../apis/database/userInfo"
+import { dbReadUserSneakers } from "../../../apis/database/userSneakers"
 
 function Home({ dispatch, navigation, authUser }) {
 

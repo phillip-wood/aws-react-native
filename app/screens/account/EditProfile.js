@@ -14,7 +14,7 @@ import AppTextInput from "../../componets/AppTextInput"
 import AppButton from "../../componets/AppButton"
 import ProfileImageInput from "../../componets/ProfileImageInput"
 import { s3CreateImage } from "../../../apis/storage"
-import { updateUserInfoImage } from "../../../actions"
+import { dbUpdateUserInfo } from "../../../apis/database/userInfo"
 
 
 function EditProfile({ authUser, userInfo, dispatch }) {
@@ -27,8 +27,7 @@ function EditProfile({ authUser, userInfo, dispatch }) {
 
   const handleUploadPic = async ( image ) => {
       let link = await s3CreateImage( image, "profile-pic" )
-      //need to create an update function
-      dispatch( updateUserInfoImage(link))
+      dispatch( dbUpdateUserInfo( link, userInfo ))
   }
 
 

@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native"
 import { connect } from "react-redux"
 
 import Screen from "../../componets/Screen"
-import { dbCreateUserSneaker } from '../../../apis/database'
+import { dbCreateUserSneaker } from '../../../apis/database/userSneakers'
 import AppButton from "../../componets/AppButton"
 import AppPicker from "../../componets/AppPicker"
 import ImageInputList from "../../componets/ImageInputList"

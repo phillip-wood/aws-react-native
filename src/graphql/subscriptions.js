@@ -1,12 +1,112 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateMessage = /* GraphQL */ `
+  subscription OnCreateMessage {
+    onCreateMessage {
+      id
+      body
+      creator_id
+      conversation_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateMessage = /* GraphQL */ `
+  subscription OnUpdateMessage {
+    onUpdateMessage {
+      id
+      body
+      creator_id
+      conversation_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteMessage = /* GraphQL */ `
+  subscription OnDeleteMessage {
+    onDeleteMessage {
+      id
+      body
+      creator_id
+      conversation_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateConversation = /* GraphQL */ `
+  subscription OnCreateConversation {
+    onCreateConversation {
+      id
+      subject
+      user_ids
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onUpdateConversation = /* GraphQL */ `
+  subscription OnUpdateConversation {
+    onUpdateConversation {
+      id
+      subject
+      user_ids
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onDeleteConversation = /* GraphQL */ `
+  subscription OnDeleteConversation {
+    onDeleteConversation {
+      id
+      subject
+      user_ids
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
 export const onCreateUserInfo = /* GraphQL */ `
   subscription OnCreateUserInfo {
     onCreateUserInfo {
       id
       image
       user_id
+      conversation_ids
       _version
       _deleted
       _lastChangedAt
@@ -21,6 +121,7 @@ export const onUpdateUserInfo = /* GraphQL */ `
       id
       image
       user_id
+      conversation_ids
       _version
       _deleted
       _lastChangedAt
@@ -35,6 +136,7 @@ export const onDeleteUserInfo = /* GraphQL */ `
       id
       image
       user_id
+      conversation_ids
       _version
       _deleted
       _lastChangedAt

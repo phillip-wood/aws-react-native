@@ -1,6 +1,123 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createMessage = /* GraphQL */ `
+  mutation CreateMessage(
+    $input: CreateMessageInput!
+    $condition: ModelMessageConditionInput
+  ) {
+    createMessage(input: $input, condition: $condition) {
+      id
+      body
+      creator_id
+      conversation_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateMessage = /* GraphQL */ `
+  mutation UpdateMessage(
+    $input: UpdateMessageInput!
+    $condition: ModelMessageConditionInput
+  ) {
+    updateMessage(input: $input, condition: $condition) {
+      id
+      body
+      creator_id
+      conversation_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteMessage = /* GraphQL */ `
+  mutation DeleteMessage(
+    $input: DeleteMessageInput!
+    $condition: ModelMessageConditionInput
+  ) {
+    deleteMessage(input: $input, condition: $condition) {
+      id
+      body
+      creator_id
+      conversation_id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createConversation = /* GraphQL */ `
+  mutation CreateConversation(
+    $input: CreateConversationInput!
+    $condition: ModelConversationConditionInput
+  ) {
+    createConversation(input: $input, condition: $condition) {
+      id
+      subject
+      user_ids
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const updateConversation = /* GraphQL */ `
+  mutation UpdateConversation(
+    $input: UpdateConversationInput!
+    $condition: ModelConversationConditionInput
+  ) {
+    updateConversation(input: $input, condition: $condition) {
+      id
+      subject
+      user_ids
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const deleteConversation = /* GraphQL */ `
+  mutation DeleteConversation(
+    $input: DeleteConversationInput!
+    $condition: ModelConversationConditionInput
+  ) {
+    deleteConversation(input: $input, condition: $condition) {
+      id
+      subject
+      user_ids
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
 export const createUserInfo = /* GraphQL */ `
   mutation CreateUserInfo(
     $input: CreateUserInfoInput!
@@ -10,6 +127,7 @@ export const createUserInfo = /* GraphQL */ `
       id
       image
       user_id
+      conversation_ids
       _version
       _deleted
       _lastChangedAt
@@ -27,6 +145,7 @@ export const updateUserInfo = /* GraphQL */ `
       id
       image
       user_id
+      conversation_ids
       _version
       _deleted
       _lastChangedAt
@@ -44,6 +163,7 @@ export const deleteUserInfo = /* GraphQL */ `
       id
       image
       user_id
+      conversation_ids
       _version
       _deleted
       _lastChangedAt

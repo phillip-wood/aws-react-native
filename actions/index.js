@@ -3,6 +3,7 @@ export const SET_SEARCH = 'SET_SEARCH'
 export const SET_AUTH_USER = 'SET_AUTH_USER'
 export const SET_USER_INFO = 'SET_USER_INFO'
 export const SET_USER_SENAKERS = 'SET_USER_SNEAKERS'
+export const SET_USER_CONVERSATIONS  = 'SET_USER_CONVERSATIONS'
 export const UPDATE_USER_USERNAME = 'UPDATE_USER_USERNAME'
 export const UPDATE_USER_INFO_IMAGE  = 'UPDATE_USER_INFO_IMAGE'
 
@@ -38,6 +39,13 @@ export function setUserSneakers ( userSneakers ) {
   return {
     type: SET_USER_SENAKERS,
     userSneakers
+  }
+}
+
+export function setUserConversations ( conversations ) {
+  return {
+    type: SET_USER_CONVERSATIONS,
+    conversations
   }
 }
 

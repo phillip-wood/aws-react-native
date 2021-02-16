@@ -3,13 +3,15 @@ import { combineReducers } from 'redux'
 import authUser from './authUser'
 import sneakers from './sneakers'
 import userSneakers from './userSneakers'
-import search from './search'
+import userSearch from './userSearch'
 import userInfo from './userInfo'
+import userConversations from './userConversations'
 
 export default combineReducers({
   authUser,
   sneakers,
   userSneakers,
-  search,
-  userInfo
+  userSearch,
+  userInfo,
+  userConversations
 })

@@ -1,7 +1,6 @@
-import React from "react"
-import { StyleSheet, View, FlatList, Image } from "react-native"
+import React, { useEffect } from "react"
+import { StyleSheet, View, FlatList } from "react-native"
 import { connect } from "react-redux"
-import { Auth } from 'aws-amplify'
 
 import ListItemSeparator from "../../componets/ListItemSeparator"
 import colors from "../../config/colors"
@@ -9,6 +8,7 @@ import Icon from "../../componets/Icon"
 import Screen from "../../componets/Screen"
 import ProfileSnip from '../../componets/ProfileSnip'
 import ListItem from "../../componets/ListItem"
+import { dbReadUserConversations } from "../../../apis/database/conversation"
 
 const menuItems = [
   {
@@ -25,7 +25,7 @@ const menuItems = [
       name: "message",
       backgroundColor: colors.primary,
     },
-    targetScreen: 'EditProfile',
+    targetScreen: 'Messages',
   },
   {
     title: "My Details",
@@ -45,7 +45,13 @@ const menuItems = [
   },
 ]
 
-function Profile({ navigation, authUser, userInfo }) {
+function Profile({ navigation, authUser, userInfo, dispatch }) {
+
+  useEffect(() => {
+    if ( authUser.id ) {
+      dispatch( dbReadUserConversations( authUser.id )) 
+    }
+  }, [ authUser ])
   
   return (
     <Screen style={styles.screen}>

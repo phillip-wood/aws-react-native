@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { Auth } from 'aws-amplify'
 
 import Screen from '../../componets/Screen'
 import AppTextInput from '../../componets/AppTextInput'

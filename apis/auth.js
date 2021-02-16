@@ -1,6 +1,6 @@
 import { Auth } from 'aws-amplify'
 import { setAuthUser, updateUserName } from '../actions/index'
-import { dbCreateUserInfo } from './database'
+import { dbCreateUserInfo } from './database/userInfo'
 
 //-----CREATE-----//
 export function createAuthUser( username, password, preferred_username, navigation ) {
