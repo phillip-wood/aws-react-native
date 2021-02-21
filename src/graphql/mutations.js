@@ -9,8 +9,6 @@ export const createMessage = /* GraphQL */ `
     createMessage(input: $input, condition: $condition) {
       id
       body
-      creator_id
-      conversation_id
       _version
       _deleted
       _lastChangedAt
@@ -27,8 +25,6 @@ export const updateMessage = /* GraphQL */ `
     updateMessage(input: $input, condition: $condition) {
       id
       body
-      creator_id
-      conversation_id
       _version
       _deleted
       _lastChangedAt
@@ -45,8 +41,6 @@ export const deleteMessage = /* GraphQL */ `
     deleteMessage(input: $input, condition: $condition) {
       id
       body
-      creator_id
-      conversation_id
       _version
       _deleted
       _lastChangedAt
@@ -63,16 +57,11 @@ export const createConversation = /* GraphQL */ `
     createConversation(input: $input, condition: $condition) {
       id
       subject
-      user_ids
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Messages {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -84,16 +73,11 @@ export const updateConversation = /* GraphQL */ `
     updateConversation(input: $input, condition: $condition) {
       id
       subject
-      user_ids
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Messages {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -105,16 +89,11 @@ export const deleteConversation = /* GraphQL */ `
     deleteConversation(input: $input, condition: $condition) {
       id
       subject
-      user_ids
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Messages {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -126,8 +105,7 @@ export const createUserInfo = /* GraphQL */ `
     createUserInfo(input: $input, condition: $condition) {
       id
       image
-      user_id
-      conversation_ids
+      username
       _version
       _deleted
       _lastChangedAt
@@ -144,8 +122,7 @@ export const updateUserInfo = /* GraphQL */ `
     updateUserInfo(input: $input, condition: $condition) {
       id
       image
-      user_id
-      conversation_ids
+      username
       _version
       _deleted
       _lastChangedAt
@@ -162,8 +139,7 @@ export const deleteUserInfo = /* GraphQL */ `
     deleteUserInfo(input: $input, condition: $condition) {
       id
       image
-      user_id
-      conversation_ids
+      username
       _version
       _deleted
       _lastChangedAt

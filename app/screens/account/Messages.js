@@ -9,13 +9,13 @@ import ListItemSeparator from "../../componets/ListItemSeparator"
 
 function Messages({ userMessages }) {
 
-  const messages = userMessages
-  const oneMess = messages[0].body[0]["message"]
-  console.log(oneMess)
+  // const messages = userMessages
+  // const oneMess = messages[0].body[0]["message"]
+  // console.log(oneMess)
   return (
      <Screen>
 
-        <FlatList
+        {/* <FlatList
             data={messages}
             keyExtractor={message => message.id.toString()}
             renderItem={({ item }) => 
@@ -27,7 +27,7 @@ function Messages({ userMessages }) {
                     /> 
                   }
             ItemSeparatorComponent={ListItemSeparator}
-        />
+        /> */}
     </Screen> 
   )
 }

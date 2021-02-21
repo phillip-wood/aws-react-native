@@ -22,7 +22,7 @@ export function dbReadUserConversations ( user_id ) {
     const filter = {user_ids: {contains: user_id}}
     return dispatch => {
         return API
-            .graphql( { query: queries.listConversations, variables: { filter: filter }})
+            .graphql( { query: queries.listConversations, variables: { filter: filter }},  )
             .then( conversations => {
                 dispatch( setUserConversations( conversations.data.listConversations.items ))
                 return null

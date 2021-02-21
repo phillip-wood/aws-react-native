@@ -6,8 +6,6 @@ export const onCreateMessage = /* GraphQL */ `
     onCreateMessage {
       id
       body
-      creator_id
-      conversation_id
       _version
       _deleted
       _lastChangedAt
@@ -21,8 +19,6 @@ export const onUpdateMessage = /* GraphQL */ `
     onUpdateMessage {
       id
       body
-      creator_id
-      conversation_id
       _version
       _deleted
       _lastChangedAt
@@ -36,8 +32,6 @@ export const onDeleteMessage = /* GraphQL */ `
     onDeleteMessage {
       id
       body
-      creator_id
-      conversation_id
       _version
       _deleted
       _lastChangedAt
@@ -51,16 +45,11 @@ export const onCreateConversation = /* GraphQL */ `
     onCreateConversation {
       id
       subject
-      user_ids
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Messages {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -69,16 +58,11 @@ export const onUpdateConversation = /* GraphQL */ `
     onUpdateConversation {
       id
       subject
-      user_ids
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Messages {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -87,16 +71,11 @@ export const onDeleteConversation = /* GraphQL */ `
     onDeleteConversation {
       id
       subject
-      user_ids
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Messages {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -105,8 +84,7 @@ export const onCreateUserInfo = /* GraphQL */ `
     onCreateUserInfo {
       id
       image
-      user_id
-      conversation_ids
+      username
       _version
       _deleted
       _lastChangedAt
@@ -120,8 +98,7 @@ export const onUpdateUserInfo = /* GraphQL */ `
     onUpdateUserInfo {
       id
       image
-      user_id
-      conversation_ids
+      username
       _version
       _deleted
       _lastChangedAt
@@ -135,8 +112,7 @@ export const onDeleteUserInfo = /* GraphQL */ `
     onDeleteUserInfo {
       id
       image
-      user_id
-      conversation_ids
+      username
       _version
       _deleted
       _lastChangedAt

@@ -52,6 +52,12 @@ function Profile({ navigation, authUser, userInfo, dispatch }) {
       dispatch( dbReadUserConversations( authUser.id )) 
     }
   }, [ authUser ])
+
+  // useEffect(() => {
+  //   if ( authUser.id ) {
+  //     dispatch( dbReadUserConversations( authUser.id )) 
+  //   }
+  // }, [ authUser ])
   
   return (
     <Screen style={styles.screen}>

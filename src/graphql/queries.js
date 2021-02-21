@@ -6,8 +6,6 @@ export const getMessage = /* GraphQL */ `
     getMessage(id: $id) {
       id
       body
-      creator_id
-      conversation_id
       _version
       _deleted
       _lastChangedAt
@@ -26,8 +24,6 @@ export const listMessages = /* GraphQL */ `
       items {
         id
         body
-        creator_id
-        conversation_id
         _version
         _deleted
         _lastChangedAt
@@ -55,8 +51,6 @@ export const syncMessages = /* GraphQL */ `
       items {
         id
         body
-        creator_id
-        conversation_id
         _version
         _deleted
         _lastChangedAt
@@ -73,16 +67,11 @@ export const getConversation = /* GraphQL */ `
     getConversation(id: $id) {
       id
       subject
-      user_ids
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Messages {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -96,7 +85,6 @@ export const listConversations = /* GraphQL */ `
       items {
         id
         subject
-        user_ids
         _version
         _deleted
         _lastChangedAt
@@ -124,7 +112,6 @@ export const syncConversations = /* GraphQL */ `
       items {
         id
         subject
-        user_ids
         _version
         _deleted
         _lastChangedAt
@@ -141,8 +128,7 @@ export const getUserInfo = /* GraphQL */ `
     getUserInfo(id: $id) {
       id
       image
-      user_id
-      conversation_ids
+      username
       _version
       _deleted
       _lastChangedAt
@@ -161,8 +147,7 @@ export const listUserInfos = /* GraphQL */ `
       items {
         id
         image
-        user_id
-        conversation_ids
+        username
         _version
         _deleted
         _lastChangedAt
@@ -190,8 +175,7 @@ export const syncUserInfos = /* GraphQL */ `
       items {
         id
         image
-        user_id
-        conversation_ids
+        username
         _version
         _deleted
         _lastChangedAt
