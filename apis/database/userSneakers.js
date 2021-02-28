@@ -21,12 +21,11 @@ export function dbCreateUserSneaker( user_id, condition, awsImageLinksArray, use
 
 //-----READ-----//
 export function dbReadUserSneakers ( user_id ) {
-    const filter = { user_id: { eq:user_id }}
     return dispatch => {
         return API
-            .graphql( { query: queries.listUserSneakers, variables: { filter: filter }})
+            .graphql( graphqlOperation( queries.getUserSneakersByUserId, { id: user_id }))
             .then( userSneakers => { 
-                dispatch( setUserSneakers( userSneakers.data.listUserSneakers.items ))
+                dispatch( setUserSneakers( userSneakers.data.getUserSneakersByUserId ))
                 return null
             })
             .catch( err => console.log( err ))

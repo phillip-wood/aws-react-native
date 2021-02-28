@@ -48,9 +48,9 @@ const menuItems = [
 function Profile({ navigation, authUser, userInfo, dispatch }) {
 
   useEffect(() => {
-    if ( authUser.id ) {
-      dispatch( dbReadUserConversations( authUser.id )) 
-    }
+    // if ( authUser.id ) {
+    //   dispatch( dbReadUserConversations( authUser.id )) 
+    // }
   }, [ authUser ])
 
   // useEffect(() => {

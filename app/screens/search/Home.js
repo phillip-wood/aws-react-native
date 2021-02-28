@@ -19,7 +19,7 @@ function Home({ dispatch, navigation, authUser }) {
 
   useEffect(() => {
     if ( authUser.id ) {
-      dispatch( dbReadUserSneakers( authUser.id ))
+      // dispatch( dbReadUserSneakers( authUser.id ))
       dispatch( dbReadUserInfo( authUser.id ) )
     }
   }, [ authUser ])

@@ -5,7 +5,9 @@ export const onCreateMessage = /* GraphQL */ `
   subscription OnCreateMessage {
     onCreateMessage {
       id
+      conversation_id
       body
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -18,7 +20,9 @@ export const onUpdateMessage = /* GraphQL */ `
   subscription OnUpdateMessage {
     onUpdateMessage {
       id
+      conversation_id
       body
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -31,7 +35,9 @@ export const onDeleteMessage = /* GraphQL */ `
   subscription OnDeleteMessage {
     onDeleteMessage {
       id
+      conversation_id
       body
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -50,6 +56,10 @@ export const onCreateConversation = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -63,6 +73,10 @@ export const onUpdateConversation = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -76,6 +90,10 @@ export const onDeleteConversation = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -83,13 +101,17 @@ export const onCreateUserInfo = /* GraphQL */ `
   subscription OnCreateUserInfo {
     onCreateUserInfo {
       id
+      user_id
       image
-      username
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      UserSneakers {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -97,13 +119,17 @@ export const onUpdateUserInfo = /* GraphQL */ `
   subscription OnUpdateUserInfo {
     onUpdateUserInfo {
       id
+      user_id
       image
-      username
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      UserSneakers {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -111,13 +137,17 @@ export const onDeleteUserInfo = /* GraphQL */ `
   subscription OnDeleteUserInfo {
     onDeleteUserInfo {
       id
+      user_id
       image
-      username
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      UserSneakers {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -125,9 +155,9 @@ export const onCreateUserSneaker = /* GraphQL */ `
   subscription OnCreateUserSneaker {
     onCreateUserSneaker {
       id
-      user_id
       condition
       images
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -152,9 +182,9 @@ export const onUpdateUserSneaker = /* GraphQL */ `
   subscription OnUpdateUserSneaker {
     onUpdateUserSneaker {
       id
-      user_id
       condition
       images
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -179,9 +209,9 @@ export const onDeleteUserSneaker = /* GraphQL */ `
   subscription OnDeleteUserSneaker {
     onDeleteUserSneaker {
       id
-      user_id
       condition
       images
+      userinfo_id
       _version
       _deleted
       _lastChangedAt

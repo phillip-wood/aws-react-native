@@ -26,37 +26,39 @@ function Login({ navigation, updateAuthState }) {
 
   return (
     <Screen style={styles.screen}>
-      <Image style={styles.logo} source={require("../../../assets/sneaked-icon-shoe-yellow.png")} />
-      <View style={styles.container}>
-        <Text style={styles.title}>Sign in to your account</Text>
-        <AppTextInput
-          value={username}
-          onChangeText={text => setUsername(text)}
-          leftIcon="account"
-          placeholder="Email"
-          autoCapitalize="none"
-          keyboardType="email-address"
-          textContentType="emailAddress"
-        />
-        <AppTextInput
-          value={password}
-          onChangeText={text => setPassword(text)}
-          leftIcon="lock"
-          placeholder="Password"
-          autoCapitalize="none"
-          autoCorrect={false}
-          secureTextEntry
-          textContentType="password"
-        />
-        <AppButton title="Login" onPress={signIn} />
-        <View style={styles.footerButtonContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-            <Text style={styles.forgotPasswordButtonText}>
-              Don't have an account? Sign Up
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+		<View style={styles.content}>
+			<Image style={styles.logo} source={require("../../../assets/sneaked-icon-shoe-yellow.png")} />
+			<View style={styles.container}>
+				<Text style={styles.title}>Sign in to your account</Text>
+				<AppTextInput
+					value={username}
+					onChangeText={text => setUsername(text)}
+					leftIcon="account"
+					placeholder="Email"
+					autoCapitalize="none"
+					keyboardType="email-address"
+					textContentType="emailAddress"
+				/>
+				<AppTextInput
+					value={password}
+					onChangeText={text => setPassword(text)}
+					leftIcon="lock"
+					placeholder="Password"
+					autoCapitalize="none"
+					autoCorrect={false}
+					secureTextEntry
+					textContentType="password"
+				/>
+				<AppButton title="Login" onPress={signIn} />
+				<View style={styles.footerButtonContainer}>
+					<TouchableOpacity onPress={() => navigation.navigate('Register')}>
+						<Text style={styles.forgotPasswordButtonText}>
+						Don't have an account? Sign Up
+						</Text>
+				</TouchableOpacity>
+				</View>
+			</View>
+		</View>
     </Screen>
   )
 }
@@ -67,6 +69,11 @@ const styles = StyleSheet.create({
   screen: {
     backgroundColor: colors.black,
     padding: 10,
+  },
+  content: {
+	backgroundColor: "white",
+	padding: "20px",
+	borderRadius: "5px",
   },
   logo: {
     width: 80,

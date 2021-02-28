@@ -1,6 +1,44 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const updateSneaker = /* GraphQL */ `
+  mutation UpdateSneaker(
+    $input: UpdateSneakerInput!
+    $condition: ModelSneakerConditionInput
+  ) {
+    updateSneaker(input: $input, condition: $condition) {
+      id
+      brand
+      model
+      submodel
+      colorway
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteSneaker = /* GraphQL */ `
+  mutation DeleteSneaker(
+    $input: DeleteSneakerInput!
+    $condition: ModelSneakerConditionInput
+  ) {
+    deleteSneaker(input: $input, condition: $condition) {
+      id
+      brand
+      model
+      submodel
+      colorway
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createMessage = /* GraphQL */ `
   mutation CreateMessage(
     $input: CreateMessageInput!
@@ -8,7 +46,9 @@ export const createMessage = /* GraphQL */ `
   ) {
     createMessage(input: $input, condition: $condition) {
       id
+      conversation_id
       body
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -24,7 +64,9 @@ export const updateMessage = /* GraphQL */ `
   ) {
     updateMessage(input: $input, condition: $condition) {
       id
+      conversation_id
       body
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -40,7 +82,9 @@ export const deleteMessage = /* GraphQL */ `
   ) {
     deleteMessage(input: $input, condition: $condition) {
       id
+      conversation_id
       body
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -62,6 +106,10 @@ export const createConversation = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -78,6 +126,10 @@ export const updateConversation = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -94,6 +146,10 @@ export const deleteConversation = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -104,13 +160,17 @@ export const createUserInfo = /* GraphQL */ `
   ) {
     createUserInfo(input: $input, condition: $condition) {
       id
+      user_id
       image
-      username
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      UserSneakers {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -121,13 +181,17 @@ export const updateUserInfo = /* GraphQL */ `
   ) {
     updateUserInfo(input: $input, condition: $condition) {
       id
+      user_id
       image
-      username
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      UserSneakers {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -138,13 +202,17 @@ export const deleteUserInfo = /* GraphQL */ `
   ) {
     deleteUserInfo(input: $input, condition: $condition) {
       id
+      user_id
       image
-      username
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      UserSneakers {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -155,9 +223,9 @@ export const createUserSneaker = /* GraphQL */ `
   ) {
     createUserSneaker(input: $input, condition: $condition) {
       id
-      user_id
       condition
       images
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -185,9 +253,9 @@ export const updateUserSneaker = /* GraphQL */ `
   ) {
     updateUserSneaker(input: $input, condition: $condition) {
       id
-      user_id
       condition
       images
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -215,9 +283,9 @@ export const deleteUserSneaker = /* GraphQL */ `
   ) {
     deleteUserSneaker(input: $input, condition: $condition) {
       id
-      user_id
       condition
       images
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -244,44 +312,6 @@ export const createSneaker = /* GraphQL */ `
     $condition: ModelSneakerConditionInput
   ) {
     createSneaker(input: $input, condition: $condition) {
-      id
-      brand
-      model
-      submodel
-      colorway
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateSneaker = /* GraphQL */ `
-  mutation UpdateSneaker(
-    $input: UpdateSneakerInput!
-    $condition: ModelSneakerConditionInput
-  ) {
-    updateSneaker(input: $input, condition: $condition) {
-      id
-      brand
-      model
-      submodel
-      colorway
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteSneaker = /* GraphQL */ `
-  mutation DeleteSneaker(
-    $input: DeleteSneakerInput!
-    $condition: ModelSneakerConditionInput
-  ) {
-    deleteSneaker(input: $input, condition: $condition) {
       id
       brand
       model

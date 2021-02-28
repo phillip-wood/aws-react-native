@@ -1,11 +1,31 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getUserInfoByUserId = /* GraphQL */ `
+  query GetUserInfoByUserId($id: ID!) {
+    getUserInfoByUserId(id: $id) {
+      id
+      user_id
+      image
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      UserSneakers {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
 export const getMessage = /* GraphQL */ `
   query GetMessage($id: ID!) {
     getMessage(id: $id) {
       id
+      conversation_id
       body
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -23,7 +43,9 @@ export const listMessages = /* GraphQL */ `
     listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        conversation_id
         body
+        userinfo_id
         _version
         _deleted
         _lastChangedAt
@@ -50,7 +72,9 @@ export const syncMessages = /* GraphQL */ `
     ) {
       items {
         id
+        conversation_id
         body
+        userinfo_id
         _version
         _deleted
         _lastChangedAt
@@ -72,6 +96,10 @@ export const getConversation = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Messages {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -127,13 +155,17 @@ export const getUserInfo = /* GraphQL */ `
   query GetUserInfo($id: ID!) {
     getUserInfo(id: $id) {
       id
+      user_id
       image
-      username
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      UserSneakers {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -146,8 +178,8 @@ export const listUserInfos = /* GraphQL */ `
     listUserInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        user_id
         image
-        username
         _version
         _deleted
         _lastChangedAt
@@ -174,8 +206,8 @@ export const syncUserInfos = /* GraphQL */ `
     ) {
       items {
         id
+        user_id
         image
-        username
         _version
         _deleted
         _lastChangedAt
@@ -191,9 +223,9 @@ export const getUserSneaker = /* GraphQL */ `
   query GetUserSneaker($id: ID!) {
     getUserSneaker(id: $id) {
       id
-      user_id
       condition
       images
+      userinfo_id
       _version
       _deleted
       _lastChangedAt
@@ -223,9 +255,9 @@ export const listUserSneakers = /* GraphQL */ `
     listUserSneakers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        user_id
         condition
         images
+        userinfo_id
         _version
         _deleted
         _lastChangedAt
@@ -252,9 +284,9 @@ export const syncUserSneakers = /* GraphQL */ `
     ) {
       items {
         id
-        user_id
         condition
         images
+        userinfo_id
         _version
         _deleted
         _lastChangedAt

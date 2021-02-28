@@ -1,9 +1,29 @@
-type UserSneaker @model @auth(rules: [{allow: private}]) {
+type Message @model @auth(rules: [{allow: private}]) @key(name: "byConversation", fields: ["conversation_id"]) {
   id: ID!
-  user_id: String!
+  conversation_id: ID!
+  body: String
+  userinfo_id: String
+}
+
+type Conversation @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  subject: String
+  Messages: [Message] @connection(keyName: "byConversation", fields: ["id"])
+}
+
+type UserInfo @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  user_id: String
+  image: String
+  UserSneakers: [UserSneaker] @connection(keyName: "byUserInfo", fields: ["id"])
+}
+
+type UserSneaker @model @auth(rules: [{allow: private, operations: [read, create, update, delete]}]) @key(name: "byUserInfo", fields: ["userinfo_id"]) {
+  id: ID!
   condition: String!
   images: [String]
   Sneaker: Sneaker @connection
+  userinfo_id: ID!
 }
 
 type Sneaker @model @auth(rules: [{allow: private, operations: [read, create]}]) {
